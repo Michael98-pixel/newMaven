@@ -59,16 +59,17 @@ public class createAccountTest {
         createAccountForm.findElement(By.id("SubmitCreate")).click();
 
 
-        new  WebDriverWait(driver,10)
-                .until(ExpectedConditions.textToBe(By.className("page-heading"),"CREATE AN ACCOUNT"));
               new WebDriverWait(driver,3)
-    .until(ExpectedConditions.urlContains("=my-account#account-creation"));
+    .until(ExpectedConditions.urlContains("#account-creation"));
 
+
+
+        Assertions.assertEquals("CREATE AN ACCOUNT", driver.findElement(By.className("page-heading")).getText());
 
         WebElement creationAccountForm= driver.findElement(By.id("account-creation_form"));
         Assertions.assertTrue(creationAccountForm.isDisplayed());
 
-        WebElement genderElement = creationAccountForm.findElement(By.xpath("//label[contains(@for,'id_gender') and normalize-space()='"+ gender +"']//input"));
+        WebElement genderElement = creationAccountForm.findElement(By.xpath("//input[@id='id_gender1']"));
         genderElement.click();
 
         WebElement date = creationAccountForm.findElement(By.id("days"));
@@ -118,10 +119,11 @@ public class createAccountTest {
         WebElement submit =driver.findElement(By.xpath("//button[@id='submitAccount']"));
         submit.click();
 
-        //WebElement everythingIsGood= driver.findElement(By.className("header_user_info"));
+
        new WebDriverWait(driver,5)
-               .until(ExpectedConditions.textToBe(By.className("header_user_info"), "Mihail Durnea"));
-       //Assertions.assertTrue();
+               .until(ExpectedConditions.urlContains( "controller=my-account"));
+       Assertions.assertEquals("Mihail Durnea",driver.findElement(By.className("header_user_info")).getText());
+
     }
     public void tearDown() {
         driver.quit();
