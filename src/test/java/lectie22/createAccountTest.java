@@ -1,7 +1,5 @@
 package lectie22;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,29 +11,31 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.time.format.DateTimeFormatter;
-
-import static org.hamcrest.Matchers.endsWith;
-
+@DisplayName("Create account test ")
 public class createAccountTest {
-    public static WebDriver driver;
+private WebDriver driver;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @BeforeEach
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:/Program Files/JetBrains/chromedriver.exe");
         driver = new ChromeDriver();
+        logger.info("Chrome driver set up");
         driver.manage().window().maximize();
 
     }
     @Test
     @DisplayName("Create new account and login succesfully")
-    public void testAccount() throws InterruptedException {
+    public void testAccount() {
         String gender ="Mr.";
 
         driver.navigate().to("http://automationpractice.com");
+        logger.debug("I am on the site ",driver.getCurrentUrl());
         Assertions.assertTrue(driver.getCurrentUrl().endsWith("/index.php"));
 
         driver.findElement(By.cssSelector("a.login")).click();
@@ -61,8 +61,6 @@ public class createAccountTest {
 
               new WebDriverWait(driver,3)
     .until(ExpectedConditions.urlContains("#account-creation"));
-
-
 
         Assertions.assertEquals("CREATE AN ACCOUNT", driver.findElement(By.className("page-heading")).getText());
 
