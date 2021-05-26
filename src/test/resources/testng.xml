@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+        <suite name="Sample Test Suite" verbose="1" >
+
+        <listeners>
+
+        <listener class-name="lectie22.RetryListenerClass"/>
+
+        </listeners>
+        <test name="freebitcoinTest()">
+        <classes>
+        <class name="lectie22.seleniumTest"/>
+        </classes>
+        </test>
+        <test name="RollAndBonus()" >
+        <classes>
+        <class name="lectie22.seleniumTest" />
+        </classes>
+        </test>
+        </suite>
