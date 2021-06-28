@@ -49,10 +49,9 @@ public class freebitcoinTest {
         search3.click();
 
         Thread.sleep(5000);
-
         WebElement search0 = driver.findElement(By.xpath("//div[@class='allow_button pushpad_allow_button']"));
         search0.click();
-        Thread.sleep(4000);
+        Thread.sleep(3000);
     }
 
     @Test(priority = 2)

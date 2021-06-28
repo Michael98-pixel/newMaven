@@ -10,7 +10,7 @@ public class RetryFailedTestCases implements IRetryAnalyzer {
 
     //You can mention maxRetryCnt (Maximium Retry Count) as per your requirement. This example uses 2 which means that for any failed testcases it retires the run twice.
 
-    private int maxRetryCnt = 10;
+    private int maxRetryCnt = 100;
 
     //This method will be called everytime a test fails. It will return TRUE if a test fails and need to be retried, else it returns FALSE
 
