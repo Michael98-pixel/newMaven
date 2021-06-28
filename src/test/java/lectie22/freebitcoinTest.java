@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-public class seleniumTest {
+public class freebitcoinTest {
     public static WebDriver driver;
     public Logger logger = LoggerFactory.getLogger(this.getClass());
 

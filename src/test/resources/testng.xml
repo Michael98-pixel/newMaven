@@ -9,12 +9,12 @@
         </listeners>
         <test name="freebitcoinTest()">
         <classes>
-        <class name="lectie22.seleniumTest"/>
+        <class name="lectie22.freebitcoinTest"/>
         </classes>
         </test>
         <test name="RollAndBonus()" >
         <classes>
-        <class name="lectie22.seleniumTest" />
+        <class name="lectie22.freebitcoinTest" />
         </classes>
         </test>
         </suite>
