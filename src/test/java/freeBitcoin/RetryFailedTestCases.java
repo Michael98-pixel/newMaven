@@ -1,4 +1,4 @@
-package lectie22;
+package freeBitcoin;
 
 import org.testng.IRetryAnalyzer;
 

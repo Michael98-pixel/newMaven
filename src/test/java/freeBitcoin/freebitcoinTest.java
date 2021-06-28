@@ -1,4 +1,4 @@
-package lectie22;
+package freeBitcoin;
 
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;

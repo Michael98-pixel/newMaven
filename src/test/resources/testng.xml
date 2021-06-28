@@ -4,17 +4,17 @@
 
         <listeners>
 
-        <listener class-name="lectie22.RetryListenerClass"/>
+        <listener class-name="freeBitcoin.RetryListenerClass"/>
 
         </listeners>
         <test name="freebitcoinTest()">
         <classes>
-        <class name="lectie22.freebitcoinTest"/>
+        <class name="freeBitcoin.freebitcoinTest"/>
         </classes>
         </test>
         <test name="RollAndBonus()" >
         <classes>
-        <class name="lectie22.freebitcoinTest" />
+        <class name="freeBitcoin.freebitcoinTest" />
         </classes>
         </test>
         </suite>
