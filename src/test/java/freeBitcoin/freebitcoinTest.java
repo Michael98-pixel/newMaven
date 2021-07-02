@@ -56,21 +56,33 @@ public class freebitcoinTest {
 
     @Test(priority = 2)
     public void RollAndBonus() throws InterruptedException {
-
+        WebElement bonusActive = driver.findElement(By.xpath("//div[@id='bonus_container_free_points']"));
         for (int i = 0; i < 1000; i++) {
-            WebElement bonusContainer = driver.findElement(By.xpath("//div[@id='bonus_container_free_points']"));
             WebElement firstResult = new WebDriverWait(driver, 3630)
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='free_play_form_button']")));
-            if (bonusContainer.isDisplayed()) {
-                firstResult.click();
-                Thread.sleep(5000);
-                driver.findElement(By.xpath("//h4[@id='multiply_now_text']")).click();
-                Thread.sleep(2000);
-                driver.findElement(By.xpath("//a[@class='free_play_link']")).click();
-            } else {
+            try {
+                if (bonusActive.isDisplayed()) {
+                    WebElement more = driver.findElement(By.cssSelector("a.dropbtn"));
+                    more.click();
+                    driver.findElement(By.cssSelector("a.rewards_link")).click();
+                    Thread.sleep(2000);
+                    driver.findElement(By.cssSelector("div.reward_category_container:nth-child(6) > div.reward_category_name")).click();
+                    Thread.sleep(2000);
+                    driver.findElement(By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(14) > div:nth-child(5) > div:nth-child(4) > div:nth-child(6) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > button:nth-child(1)")).click();
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("//a[@class='free_play_link']")).click();
+                    Thread.sleep(10000);
+                    firstResult.click();
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("//h4[@id='multiply_now_text']")).click();
+                    Thread.sleep(2000);
+                    driver.findElement(By.xpath("//a[@class='free_play_link']")).click();
+                }
+            } catch (Exception e) {
                 WebElement more = driver.findElement(By.cssSelector("a.dropbtn"));
                 more.click();
                 driver.findElement(By.cssSelector("a.rewards_link")).click();
+                Thread.sleep(2000);
                 driver.findElement(By.cssSelector("div.reward_category_container:nth-child(6) > div.reward_category_name")).click();
                 Thread.sleep(2000);
                 driver.findElement(By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(14) > div:nth-child(5) > div:nth-child(4) > div:nth-child(6) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > button:nth-child(1)")).click();
@@ -85,8 +97,9 @@ public class freebitcoinTest {
             }
         }
     }
-        @AfterClass
-        public void tearDown () {
-            driver.quit();
-        }
+
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
     }
+}
